@@ -1,0 +1,88 @@
+.details {
+  display: flex;
+  flex-direction: row-reverse;
+
+  gap: 5rem;
+}
+
+.poster-container {
+  width: 30rem;
+  height: 45rem;
+  margin: 0 auto 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.details-content {
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.details header,
+.details section {
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.details header {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.btn-back,
+.btn-add {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-back:hover,
+.btn-add:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.details-overview {
+  margin-left: 2rem;
+  flex-grow: 1;
+}
+
+.details-overview h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.details-overview p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.details section {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.rating {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+.details section p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.details section p:last-child {
+  margin-bottom: 0;
+}
