@@ -22,15 +22,13 @@
   background-color: black;
   overflow: hidden;
   border-radius: 10px;
-
   cursor: pointer;
   position: relative;
-
   transition: all 2s;
 }
 .movie-info img {
   width: 100%;
-  height: auto;
+  height: 100%;
   transition: all 0.5s;
 }
 .intro {
@@ -39,7 +37,7 @@
   padding: 2rem;
   box-sizing: border-box;
   position: absolute;
-  background-color: lightslategray;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
 
   color: #fff;
   bottom: -30%;
@@ -64,4 +62,70 @@
 }
 .movie-info p {
   font-size: 2rem;
+}
+/*?___________________________MEDIA QUERIES___________________________*/
+
+/* Medium desktop and laptop screens */
+@media screen and (max-width: 69.375em) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* Tablet and small desktop screens */
+@media screen and (max-width: 56.25em) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .movie-info {
+    width: 20rem;
+    height: 36rem;
+  }
+  .intro {
+    width: 20rem;
+  }
+}
+/* Small mobile devices */
+@media screen and (max-width: 44.8125em) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .movie-info {
+    /* width: 100%; */
+    max-width: 30rem;
+    height: 30rem;
+    aspect-ratio: 2 / 3;
+  }
+
+  .intro {
+    width: 100%;
+    height: 30%;
+  }
+  .movie-info h3 {
+    font-size: 1.8rem;
+  }
+  .movie-info p {
+    font-size: 1.4rem;
+  }
+}
+/* Extra small mobile devices */
+@media screen and (max-width: 29.6875em) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+  .movie-info {
+    width: 100%;
+    max-width: 24rem;
+    height: 30rem;
+    margin: 0 auto;
+  }
+  .intro {
+    width: 100%;
+    height: 30%;
+  }
+  .movie-info h3 {
+    font-size: 1.6rem;
+  }
+  .movie-info p {
+    font-size: 1.2rem;
+  }
 }

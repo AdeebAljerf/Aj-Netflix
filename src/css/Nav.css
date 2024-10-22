@@ -88,3 +88,91 @@
   justify-self: end;
   font-size: 1.8rem;
 }
+
+/*?___________________________MEDIA QUERIES___________________________*/
+@media screen and (max-width: 62em) {
+  .nav-bar {
+    padding: 0 2rem;
+  }
+
+  .logo h1 {
+    font-size: 2rem;
+  }
+
+  .search {
+    width: 30rem;
+  }
+}
+
+@media screen and (max-width: 48em) {
+  .nav-bar {
+    padding: 0 1.5rem;
+  }
+
+  .logo span {
+    font-size: 2.8rem;
+  }
+
+  .logo h1 {
+    font-size: 1.8rem;
+  }
+
+  .search {
+    width: 25rem;
+    font-size: 1.6rem;
+    padding: 1rem 1.4rem;
+  }
+
+  .num-results {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 42.5em) {
+  .nav-bar {
+    padding: 0 1rem;
+  }
+
+  .logo span {
+    font-size: 2.4rem;
+  }
+
+  .logo h1 {
+    font-size: 1.6rem;
+  }
+
+  .search {
+    width: 20rem;
+    font-size: 1.4rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .num-results {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (max-width: 29.6875em) {
+  .nav-bar {
+    padding: 0 0.8rem;
+
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .logo span {
+    font-size: 2.2rem;
+  }
+
+  .logo h1 {
+    font-size: 1.4rem;
+  }
+
+  .search {
+    width: 15rem;
+    font-size: 1.3rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .num-results {
+    display: none;
+  }
+}

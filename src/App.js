@@ -38,10 +38,12 @@ export default function App() {
 
   return (
     <>
-      <NavBar>
-        <Search query={query} setQuery={setQuery}></Search>
-        <NumResults movies={movies}></NumResults>
-      </NavBar>
+      {!selectedId && (
+        <NavBar>
+          <Search query={query} setQuery={setQuery}></Search>
+          <NumResults movies={movies}></NumResults>
+        </NavBar>
+      )}
 
       <main className="main">
         {!selectedId && (

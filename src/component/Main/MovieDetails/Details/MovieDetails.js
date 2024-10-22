@@ -18,6 +18,8 @@ export default function MovieDetails({
   const [userRating, setUserRating] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
   //? an ture of false value to know if the user rated and watched the movie before or no
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
 
@@ -25,6 +27,21 @@ export default function MovieDetails({
   const watchedUserRating = watched.find(
     (movie) => movie.imdbID === selectedId
   )?.userRating;
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 650px)");
+
+    const handleMediaQueryChange = (event) => {
+      setIsSmallScreen(event.matches);
+    };
+
+    setIsSmallScreen(mediaQuery.matches);
+    mediaQuery.addListener(handleMediaQueryChange);
+
+    return () => {
+      mediaQuery.removeListener(handleMediaQueryChange);
+    };
+  }, []);
 
   //? USE EFFECT FOR UPLOADING MOVIE DETAILS FROM HES ID
   useEffect(
@@ -100,39 +117,52 @@ export default function MovieDetails({
       className="details"
       // style={{ backgroundImage: `url(${movie.Poster})` }}
     >
+      <button className="btn-back" onClick={handleCloseMovie}>
+        ←
+      </button>
+
       <div className="poster-container">
         <img src={movie.Poster} alt={`${movie.Title} poster`} />
       </div>
-      <div className="details-content">
+      <div className="details-content ">
         {/* //? all of this data came from the api (to see it cl data) */}
-        <header>
-          <button className="btn-back" onClick={handleCloseMovie}>
-            ←
-          </button>
-          {/* <img src={movie.Poster}></img> */}
 
+        <header>
           <div className="details-overview">
             <h2>{movie.Title}</h2>
-            <p>
-              {movie.Released} • {movie.Runtime}
+            <p className="border-left">
+              <span className="nowrap">{movie.Runtime}</span>
             </p>
 
-            <p>{movie.Genre}</p>
+            <p className="border-left">{movie.Genre}</p>
 
-            <p>
+            <p className="border-left">
+              <span className="nowrap"> IMDB Rating : </span>
               <span>⭐</span>
-              {movie.imdbRating} IMDB Rating
+              {movie.imdbRating}
             </p>
           </div>
         </header>
         <section>
+          <div className="details-about">
+            <h3>Plot</h3>
+            <p>{movie.Plot}</p>
+
+            <h3>Cast</h3>
+            <p>{movie.Actors}</p>
+
+            <h3>Director</h3>
+            <p>{movie.Director}</p>
+          </div>
+
           <div className="rating">
             {!isWatched ? (
               <>
                 <StarRating
                   maxRating={10}
-                  size={25}
+                  size={isSmallScreen ? 20 : 25}
                   onSetRating={setUserRating}
+                  className="details-star-rating"
                 ></StarRating>
 
                 {userRating > 0 && (
@@ -145,13 +175,6 @@ export default function MovieDetails({
               <p>You already Rated this Movie {watchedUserRating}</p>
             )}
           </div>
-
-          <p>
-            <em>{movie.Plot}</em>
-          </p>
-
-          <p>{movie.Actors}</p>
-          <p> Directed by {movie.Director}</p>
         </section>
       </div>
     </div>
