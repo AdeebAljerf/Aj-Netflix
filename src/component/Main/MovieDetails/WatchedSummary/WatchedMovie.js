@@ -1,19 +1,21 @@
+import "../../../../css/WatchedMovie.css";
+
 export default function WatchedMovie({ movie, handleDeleteWatched }) {
   return (
-    <li>
+    <li className="watched-movie ">
       <img src={movie.Poster} alt={`${movie.Title} poster`} />
       <h3>{movie.Title}</h3>
-      <div>
+      <div className="watched-movie-info">
         <p>
-          <span>⭐️</span>
+          <span>⭐️ Imdb rating :</span>
           <span>{movie.imdbRating}</span>
         </p>
         <p>
-          <span>🌟</span>
+          <span>🌟 My rating :</span>
           <span>{movie.userRating}</span>
         </p>
         <p>
-          <span>⏳</span>
+          <span>⏳ Movie Time :</span>
           <span>{movie.runtime} min</span>
         </p>
 

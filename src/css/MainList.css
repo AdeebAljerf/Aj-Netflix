@@ -109,13 +109,10 @@
 }
 /* Extra small mobile devices */
 @media screen and (max-width: 29.6875em) {
-  .list {
-    grid-template-columns: 1fr;
-  }
   .movie-info {
     width: 100%;
-    max-width: 24rem;
-    height: 30rem;
+    max-width: 25rem;
+    height: 20rem;
     margin: 0 auto;
   }
   .intro {

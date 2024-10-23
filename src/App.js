@@ -7,11 +7,13 @@ import MovieList from "./component/Main/MovieList/MovieList";
 import MovieDetails from "./component/Main/MovieDetails/Details/MovieDetails";
 import WatchedSummary from "./component/Main/MovieDetails/WatchedSummary/WatchedSummary";
 import WatchedMovieList from "./component/Main/MovieDetails/WatchedList/WatchedMovieList";
-import Box from "./component/Ui/Box";
-import NumResults from "./component/Nav/Children/NumResults";
+
 import NavBar from "./component/Nav/NavBar";
 import Loader from "./component/Ui/Loader";
 import ErrorMessage from "./component/Ui/ErrorMessage";
+import WatchedList from "./component/Nav/Children/WatchedList";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
@@ -35,52 +37,63 @@ export default function App() {
 
   //? Custom Hook
   const { movies, isLoading, error } = useMovie(query);
-
   return (
-    <>
-      {!selectedId && (
-        <NavBar>
-          <Search query={query} setQuery={setQuery}></Search>
-          <NumResults movies={movies}></NumResults>
-        </NavBar>
-      )}
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/Aj-Netflix"
+          element={
+            <>
+              {!selectedId && (
+                <NavBar>
+                  <Search query={query} setQuery={setQuery}></Search>
+                  <WatchedList />
+                </NavBar>
+              )}
 
-      <main className="main">
-        {!selectedId && (
-          <div className="movies-list">
-            {error ? (
-              <ErrorMessage message={error}></ErrorMessage>
-            ) : isLoading ? (
-              <Loader></Loader>
-            ) : (
-              <MovieList
-                movies={movies}
-                selectedId={selectedId}
-                setSelectedId={setSelectedId}
-              ></MovieList>
-            )}
-          </div>
-        )}
-
-        {selectedId && (
-          <div className="movie-details">
-            <MovieDetails
-              selectedId={selectedId}
-              setSelectedId={setSelectedId}
-              setWatched={setWatched}
+              <main className="main">
+                {!selectedId && (
+                  <div className="movies-list">
+                    {error && <ErrorMessage message={error} />}
+                    {isLoading && <Loader />}
+                    {!error && !isLoading && (
+                      <MovieList
+                        movies={movies}
+                        selectedId={selectedId}
+                        setSelectedId={setSelectedId}
+                      />
+                    )}
+                  </div>
+                )}
+              </main>
+            </>
+          }
+        />
+        <Route
+          path="/movieDetails"
+          element={
+            selectedId && (
+              <div className="movie-details">
+                <MovieDetails
+                  selectedId={selectedId}
+                  setSelectedId={setSelectedId}
+                  setWatched={setWatched}
+                  watched={watched}
+                ></MovieDetails>
+              </div>
+            )
+          }
+        />
+        <Route
+          path="/watched"
+          element={
+            <WatchedMovieList
               watched={watched}
-            ></MovieDetails>
-          </div>
-        )}
-
-        {/* <>
-          <WatchedSummary watched={watched}></WatchedSummary>
-          <WatchedMovieList
-            watched={watched}
-            handleDeleteWatched={handleDeleteWatched}
-          ></WatchedMovieList>
-        </> */}
-      </main>
-    </>
+              handleDeleteWatched={handleDeleteWatched}
+            />
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }

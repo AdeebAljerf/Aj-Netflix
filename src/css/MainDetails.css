@@ -216,7 +216,7 @@
 }
 
 /* Small screens (phones, 767px and down) */
-@media screen and (max-width: 47.9375em) {
+@media (max-width: 47.9375em) {
   .details {
     padding: 1rem;
   }
@@ -267,6 +267,7 @@
   .poster-container {
     height: 25rem;
   }
+
   .details-content h2 {
     font-size: 1.8rem;
   }

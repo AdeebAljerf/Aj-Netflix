@@ -1,0 +1,22 @@
+.watchedList {
+  text-decoration: none;
+}
+.watchlist-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(to right, #2c3e50, #3498db);
+  border-radius: 8px;
+  transition: transform 0.2s;
+  color: white;
+}
+
+.watchlist-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.watchlist-button span {
+  font-size: 24px;
+}

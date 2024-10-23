@@ -4,6 +4,7 @@ import Loader from "../../../Ui/Loader";
 import StarRating from "../../../Ui/StartRating";
 import { useKey } from "../../../../Hooks/useKey";
 import "../../../../css/MainDetails.css";
+import { useNavigate } from "react-router-dom";
 
 //? ----------------------------Movie Details-------------------------------------
 export default function MovieDetails({
@@ -12,6 +13,7 @@ export default function MovieDetails({
   setWatched,
   watched,
 }) {
+  const navigate = useNavigate();
   //? this is a state of the movieInfo
   const [movie, setMovie] = useState({});
   //? this is a state to take the value from the star compo
@@ -49,7 +51,7 @@ export default function MovieDetails({
       async function getMovieDetails() {
         setIsLoading(true);
         const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${key}&i=${selectedId}`
+          `https://www.omdbapi.com/?apikey=${key}&i=${selectedId}`
         );
         const data = await res.json();
         console.log(data);
@@ -96,6 +98,7 @@ export default function MovieDetails({
 
     handleAddWatched(newWatchedMovie);
     handleCloseMovie();
+    navigate("/Aj-Netflix");
   };
 
   //? to close the detiels of movie background
@@ -117,7 +120,16 @@ export default function MovieDetails({
       className="details"
       // style={{ backgroundImage: `url(${movie.Poster})` }}
     >
-      <button className="btn-back" onClick={handleCloseMovie}>
+      {/* <button className="btn-back" onClick={handleCloseMovie}>
+        ←
+      </button> */}
+      <button
+        className="btn-back"
+        onClick={() => {
+          setSelectedId(null);
+          navigate("/Aj-Netflix");
+        }}
+      >
         ←
       </button>
 
