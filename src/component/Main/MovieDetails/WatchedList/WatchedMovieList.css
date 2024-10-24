@@ -1,28 +1,109 @@
 .watched-page {
-  padding: 2rem;
-  max-width: 120rem;
+  padding: 3rem 4rem;
+  max-width: 140rem;
   margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #1a1a1a, #2d2d2d);
 }
 
 .watched-title {
   text-align: center;
   color: #fff;
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
+  margin-bottom: 3.5rem;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.watched-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: #e50914;
+  border-radius: 2px;
 }
 
 .watched-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
   padding: 0;
   list-style: none;
+  margin: 2rem 0;
 }
 
 .empty-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: 3rem;
-  background: #f8f9fa;
-  border-radius: 12px;
-  color: #6c757d;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  margin: 4rem auto;
+  width: 450px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.empty-list p {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.btn-back {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  background: #e50914;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3);
+}
+
+.btn-back:hover {
+  transform: translateY(-2px);
+  background: #f40612;
+}
+
+.btn-back:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .watched-page {
+    padding: 2rem;
+  }
+
+  .watched-title {
+    font-size: 2.5rem;
+  }
+
+  .watched-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .empty-list {
+    width: 90%;
+    padding: 2rem;
+  }
 }
