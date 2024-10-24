@@ -86,3 +86,80 @@
   color: white;
   transform: scale(1.1);
 }
+
+/* For tablets */
+@media screen and (max-width: 768px) {
+  .watched-movie {
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  .watched-movie img {
+    width: 14rem;
+    height: 20rem;
+  }
+
+  .watched-movie h3 {
+    font-size: 1.2rem;
+  }
+
+  .watched-movie-info p {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .btn-delete {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1rem;
+  }
+}
+
+/* For mobile phones */
+@media screen and (max-width: 480px) {
+  .watched-movie {
+    max-width: 95%;
+    padding: 0.8rem;
+  }
+
+  .watched-movie img {
+    width: 12rem;
+    height: 16rem;
+  }
+
+  .watched-movie h3 {
+    font-size: 1.1rem;
+  }
+
+  .watched-movie-info {
+    padding: 0.3rem;
+  }
+
+  .watched-movie-info p {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .btn-delete {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* For very small devices */
+@media screen and (max-width: 320px) {
+  .watched-movie img {
+    width: 10rem;
+    height: 14rem;
+  }
+
+  .watched-movie-info p {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .watched-movie-info span:first-child {
+    margin-right: 0;
+  }
+}

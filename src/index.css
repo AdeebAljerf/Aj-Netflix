@@ -14,6 +14,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #4d4d4d #1a1a1a;
 }
 
 html {
@@ -27,6 +30,27 @@ body {
   color: var(--color-text);
 
   background-color: var(--color-background-900);
+}
+
+/* Modern Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4d4d4d;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #666666;
 }
 
 /* ******* */
