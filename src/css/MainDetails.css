@@ -72,7 +72,9 @@
 
 .btn-back {
   position: fixed;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   top: 2rem;
   left: 5rem;
   background: rgba(255, 255, 255, 0.2);
