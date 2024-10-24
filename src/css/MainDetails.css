@@ -70,27 +70,6 @@
   margin-bottom: 2rem;
 }
 
-.btn-back {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 2rem;
-  left: 5rem;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  font-size: 3rem;
-}
-
-.btn-back:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
 .details-overview {
   display: flex;
   padding: 1.5rem;
@@ -220,7 +199,7 @@
   .btn-back {
     top: 1rem;
     left: 1rem;
-    background: rgba(255, 255, 255, 0.4);
+
     z-index: 99999;
   }
 }
@@ -266,7 +245,7 @@
     margin-top: 1rem;
   }
   .btn-back {
-    font-size: 2rem;
+    font-size: 3rem;
   }
   .details-content .btn-add {
     font-size: 1rem;
